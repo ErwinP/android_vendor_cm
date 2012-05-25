@@ -92,7 +92,8 @@ PRODUCT_PACKAGES += \
     SoundRecorder \
     Basic \
     LiveWallpapers \
-    LiveWallpapersPicker
+    LiveWallpapersPicker \
+    Apollo
 
 # Custom CM packages
 PRODUCT_PACKAGES += \
