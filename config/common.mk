@@ -87,18 +87,12 @@ PRODUCT_PACKAGES += \
 
 # Optional CM packages
 PRODUCT_PACKAGES += \
-    VideoEditor \
     VoiceDialer \
     SoundRecorder \
     Basic \
-    HoloSpiralWallpaper \
-    MagicSmokeWallpapers \
-    NoiseField \
-    Galaxy4 \
     LiveWallpapers \
     LiveWallpapersPicker \
-    VisualizationWallpapers \
-    PhaseBeam
+    Apollo
 
 # Custom CM packages
 PRODUCT_PACKAGES += \
@@ -106,12 +100,11 @@ PRODUCT_PACKAGES += \
     DSPManager \
     libcyanogen-dsp \
     audio_effects.conf \
-    CMWallpapers \
-    Apollo
+    CMWallpapers
 
 # Extra tools in CM
 PRODUCT_PACKAGES += \
-    openvpn
+	openvpn
 
 PRODUCT_PACKAGE_OVERLAYS += vendor/cm/overlay/dictionaries
 PRODUCT_PACKAGE_OVERLAYS += vendor/cm/overlay/common
@@ -124,21 +117,26 @@ PRODUCT_VERSION_MAINTENANCE = 0-RC0
 ifdef CM_NIGHTLY
     CM_BUILDTYPE := NIGHTLY
 endif
+
 ifdef CM_EXPERIMENTAL
     CM_BUILDTYPE := EXPERIMENTAL
 endif
+
 ifdef CM_RELEASE
     CM_BUILDTYPE := RELEASE
 endif
 
 ifdef CM_BUILDTYPE
     ifdef CM_EXTRAVERSION
+
         # Force build type to EXPERIMENTAL
         CM_BUILDTYPE := EXPERIMENTAL
+
         # Add leading dash to CM_EXTRAVERSION
         CM_EXTRAVERSION := -$(CM_EXTRAVERSION)
     endif
 else
+
     # If CM_BUILDTYPE is not defined, set to UNOFFICIAL
     CM_BUILDTYPE := UNOFFICIAL
     CM_EXTRAVERSION :=
