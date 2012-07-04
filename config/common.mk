@@ -90,8 +90,6 @@ PRODUCT_PACKAGES += \
     VoiceDialer \
     SoundRecorder \
     Basic \
-    LiveWallpapers \
-    LiveWallpapersPicker \
     Apollo
 
 # Custom CM packages
