@@ -51,7 +51,6 @@ PRODUCT_COPY_FILES += \
     vendor/cm/prebuilt/common/bin/handle_compcache:system/bin/handle_compcache
 
 PRODUCT_COPY_FILES +=  \
-    vendor/cm/proprietary/RomManager.apk:system/app/RomManager.apk \
     vendor/cm/proprietary/Term.apk:system/app/Term.apk \
     vendor/cm/proprietary/lib/armeabi/libjackpal-androidterm4.so:system/lib/libjackpal-androidterm4.so \
 	vendor/cm/prebuilt/common/apps/Superuser.apk:system/app/Superuser.apk
@@ -86,10 +85,18 @@ PRODUCT_PACKAGES += \
 
 # Optional CM packages
 PRODUCT_PACKAGES += \
+    VideoEditor \
     VoiceDialer \
     SoundRecorder \
     Basic \
-    Apollo
+    HoloSpiralWallpaper \
+    MagicSmokeWallpapers \
+    NoiseField \
+    Galaxy4 \
+    LiveWallpapers \
+    LiveWallpapersPicker \
+    VisualizationWallpapers \
+    PhaseBeam
 
 # Custom CM packages
 PRODUCT_PACKAGES += \
@@ -97,7 +104,9 @@ PRODUCT_PACKAGES += \
     DSPManager \
     libcyanogen-dsp \
     audio_effects.conf \
-    CMWallpapers
+    CMWallpapers \
+    Apollo \
+    CMUpdater
 
 # Extra tools in CM
 PRODUCT_PACKAGES += \
@@ -117,26 +126,21 @@ PRODUCT_VERSION_MAINTENANCE = 0
 ifdef CM_NIGHTLY
     CM_BUILDTYPE := NIGHTLY
 endif
-
 ifdef CM_EXPERIMENTAL
     CM_BUILDTYPE := EXPERIMENTAL
 endif
-
 ifdef CM_RELEASE
     CM_BUILDTYPE := RELEASE
 endif
 
 ifdef CM_BUILDTYPE
     ifdef CM_EXTRAVERSION
-
         # Force build type to EXPERIMENTAL
         CM_BUILDTYPE := EXPERIMENTAL
-
         # Add leading dash to CM_EXTRAVERSION
         CM_EXTRAVERSION := -$(CM_EXTRAVERSION)
     endif
 else
-
     # If CM_BUILDTYPE is not defined, set to UNOFFICIAL
     CM_BUILDTYPE := UNOFFICIAL
     CM_EXTRAVERSION :=
